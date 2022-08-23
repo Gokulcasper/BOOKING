@@ -85,9 +85,11 @@
 .date {
   position: absolute;
   top: 50px;
+  z-index: 2;
 }
 
 .options {
+  z-index: 2;
   position: absolute;
   background-color: white;
   top: 50px;
@@ -123,4 +125,36 @@
 
 .optionCounterButton:disabled {
   cursor: not-allowed;
+}
+
+.featured {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  z-index: 1;
+}
+
+.featuredImg {
+  width: 100%;
+  object-fit: cover;
+}
+
+.featuredItem {
+  position: relative;
+  color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 230px;
+}
+
+img.featuredImg {
+  height: 230px;
+}
+
+.featuredTitles {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
