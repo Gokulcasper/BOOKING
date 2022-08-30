@@ -6,14 +6,20 @@ import { useState } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
+import useFetch from "../../hooks/useFetch";
 
 const List = () => {
   const location = useLocation();
   const [destination, setDestination] = useState(location.state.destination);
-  const [date, setDate] = useState(location.state.date);
+  const [dates, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
   const [options, setOptions] = useState(location.state.options);
 
+  const { data, loading, error, reFetch } = useFetch(
+    `/hotels?city=${destination}`
+  );
+
+  console.log("data", data);
   return (
     <div>
       <Navbar />
@@ -29,14 +35,14 @@ const List = () => {
             <div className="lsItem">
               <label>Check-in Date</label>
               <span onClick={() => setOpenDate(!openDate)}>{`${format(
-                date[0].startDate,
+                dates[0].startDate,
                 "MM/dd/yyyy"
-              )} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+              )} to ${format(dates[0].endDate, "MM/dd/yyyy")}`}</span>
               {openDate && (
                 <DateRange
                   onChange={(item) => setDate([item.selection])}
                   minDate={new Date()}
-                  ranges={date}
+                  ranges={dates}
                 />
               )}
             </div>
@@ -87,15 +93,15 @@ const List = () => {
             <button>Search</button>
           </div>
           <div className="listResult">
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
+            {loading ? (
+              "loading"
+            ) : (
+              <>
+                {data.map((item) => {
+                  return <SearchItem item={item} key={item._id} />;
+                })}
+              </>
+            )}
           </div>
         </div>
       </div>
