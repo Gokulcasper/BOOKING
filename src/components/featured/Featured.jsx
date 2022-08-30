@@ -5,11 +5,10 @@ const Featured = () => {
   const { data, loading, error } = useFetch(
     "/hotels/countByCity?cities=TamilNadu,Kerala,Karnataka"
   );
-
   return (
     <div className="featured">
       {loading ? (
-        "Loading Please Wait"
+        "Loading please wait"
       ) : (
         <>
           <div className="featuredItem">
