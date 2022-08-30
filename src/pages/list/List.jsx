@@ -21,7 +21,7 @@ const List = () => {
     `/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
   );
 
-  const handeleClick = () => {
+  const handleClick = () => {
     reFetch();
   };
 
@@ -103,7 +103,7 @@ const List = () => {
                 </div>
               </div>
             </div>
-            <button onClick={handeleClick}>Search</button>
+            <button onClick={handleClick}>Search</button>
           </div>
           <div className="listResult">
             {loading ? (
