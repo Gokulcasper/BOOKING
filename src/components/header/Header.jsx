@@ -20,6 +20,7 @@ import { AuthContext } from "../../context/AuthContext";
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
+  const [close, setClose] = useState(false);
   const [dates, setDates] = useState([
     {
       startDate: new Date(),
@@ -104,6 +105,7 @@ const Header = ({ type }) => {
               </div>
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
+
                 <span
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
@@ -111,7 +113,7 @@ const Header = ({ type }) => {
                   dates[0].endDate,
                   "MM/dd/yyyy"
                 )}`}</span>
-                {openDate && (
+                {openDate && !openOptions && (
                   <DateRange
                     editableDateInputs={true}
                     onChange={(item) => setDates([item.selection])}
@@ -122,6 +124,8 @@ const Header = ({ type }) => {
                   />
                 )}
               </div>
+
+              {/* {openDate && ( */}
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faPerson} className="headerIcon" />
                 <span
@@ -196,6 +200,7 @@ const Header = ({ type }) => {
                   </div>
                 )}
               </div>
+
               <div className="headerSearchItem">
                 <button className="headerBtn" onClick={handleSearch}>
                   Search
