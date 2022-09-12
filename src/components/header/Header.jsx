@@ -113,7 +113,7 @@ const Header = ({ type }) => {
                   dates[0].endDate,
                   "MM/dd/yyyy"
                 )}`}</span>
-                {openDate && !openOptions && (
+                {openDate && (
                   <DateRange
                     editableDateInputs={true}
                     onChange={(item) => setDates([item.selection])}
@@ -125,7 +125,6 @@ const Header = ({ type }) => {
                 )}
               </div>
 
-              {/* {openDate && ( */}
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faPerson} className="headerIcon" />
                 <span
