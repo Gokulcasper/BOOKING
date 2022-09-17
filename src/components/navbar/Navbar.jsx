@@ -19,7 +19,11 @@ const Navbar = () => {
           <div className="navItems">
             <div className="navProfile">
               <img
-                src={user.img}
+                src={`${
+                  user.img
+                    ? user.img
+                    : "https://i.pinimg.com/originals/56/2d/55/562d55c3067450571305a19d15eaa173.png"
+                }`}
                 alt="Admin"
                 className="navImg"
                 onClick={() => {

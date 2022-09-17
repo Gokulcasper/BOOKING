@@ -1,0 +1,45 @@
+.register {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register h1 {
+  display: revert;
+  align-items: center;
+  padding: 18px;
+  justify-content: center;
+  margin-left: 0px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  color: #115f98;
+}
+
+.lContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lInput {
+  height: 30px;
+  padding: 10px;
+}
+
+.lButton {
+  font-size: 20px;
+  border: none;
+  padding: 15px 20px;
+  background-color: #0071c2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.lButton:disabled {
+  background-color: #0071c28c;
+  cursor: not-allowed;
+}

@@ -33,6 +33,8 @@ const Login = () => {
   return (
     <div className="login">
       <div className="lContainer">
+        <h1>LOGIN NOW</h1>
+
         <input
           type="text"
           placeholder="username"
